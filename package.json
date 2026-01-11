@@ -1,0 +1,57 @@
+{
+  "name": "@robot-inventor/baseline-status-next",
+  "version": "0.0.0",
+  "description": "A React component widget displaying Baseline status of a web feature in Next.js",
+  "keywords": [
+    "react",
+    "next",
+    "baseline"
+  ],
+  "homepage": "https://github.com/Robot-Inventor/baseline-status-next#readme",
+  "bugs": {
+    "url": "https://github.com/Robot-Inventor/baseline-status-next/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robot-Inventor/baseline-status-next.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Robot-Inventor",
+  "type": "module",
+  "main": "dist/BaselineStatus.js",
+  "types": "./dist/BaselineStatus.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "provenance": true
+  },
+  "scripts": {
+    "lint": "eslint --flag unstable_native_nodejs_ts_config \"./src/**/*.{ts,tsx}\"",
+    "build": "tsc && shx cp \"./src/**/*.module.css\" \"./dist\"",
+    "format": "prettier --write \"./src/**/*.{ts,tsx,css}\"",
+    "format:check": "prettier --check \"./src/**/*.{ts,tsx,css}\"",
+    "ci:version": "changeset version",
+    "ci:publish": "npm run build && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.5.2",
+    "@changesets/cli": "^2.29.8",
+    "@robot-inventor/eslint-config": "^11.1.1",
+    "@robot-inventor/tsconfig-base": "^7.0.0",
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.2",
+    "next": "^16.1.1",
+    "prettier": "^3.7.4",
+    "shx": "^0.4.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "overrides": {
+    "zod-validation-error": "^5.0.0"
+  }
+}

@@ -1,0 +1,149 @@
+.host {
+    --baseline-status-color-limited: light-dark(#ea8600, #f09418);
+    --baseline-status-color-newly: light-dark(#1a73e8, #4185ff);
+    --baseline-status-color-widely: light-dark(#1e8e3e, #24a446);
+    --baseline-status-color-no_data: light-dark(#707070, #868686);
+    --baseline-status-color-outline: light-dark(#d9d9d9, #d9d9d9);
+    --baseline-status-color-link: light-dark(#1a73e8, #5aa1ff);
+
+    color: inherit;
+    display: block;
+    border: solid 1px var(--baseline-status-color-outline);
+    border-radius: 8px;
+    padding: 16px 24px 0 24px;
+    max-width: 800px;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+}
+
+.name {
+    font-weight: normal;
+    font-size: 20px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.host p a,
+.host p a:active,
+.host p a:visited {
+    all: revert;
+    color: var(--baseline-status-color-link);
+}
+
+.baselineStatusTitle {
+    gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.baselineStatusTitle div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.baselineBadge {
+    background: #3367d6;
+    color: #fff;
+    font-size: 11px;
+    padding: 0 4px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    line-height: 20px;
+    margin-inline: 0.5rem;
+    white-space: nowrap;
+}
+
+.baselineStatusBrowsers {
+    font-size: 0;
+    max-width: 200px;
+    display: flex;
+    gap: 16px;
+}
+
+.baselineStatusBrowsers span {
+    white-space: nowrap;
+}
+
+.supportNoData {
+    color: var(--baseline-status-color-no_data);
+}
+
+.supportUnavailable {
+    color: var(--baseline-status-color-limited);
+}
+
+.supportNewly {
+    color: var(--baseline-status-color-newly);
+}
+
+.supportWidely,
+.supportAvailable {
+    color: var(--baseline-status-color-widely);
+}
+
+.host details > summary .openIcon {
+    width: 10px;
+    height: 20px;
+    margin-left: auto;
+    color: inherit;
+}
+
+@media (min-width: 420px) {
+    .host details > summary .openIcon {
+        margin-left: 48px;
+    }
+}
+
+.host details > summary .openIcon svg {
+    transition: transform 0.3s;
+}
+
+.host details[open] summary .openIcon svg {
+    transform: rotate(180deg);
+}
+
+.host summary {
+    display: flex;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    padding: 16px 0;
+}
+
+.host summary::-webkit-details-marker {
+    display: none;
+}
+
+.signalsBadge,
+.signalsBadge:visited,
+.signalsBadge:active {
+    text-decoration: none;
+    background: transparent;
+    color: inherit;
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 12px;
+    border: 1px solid var(--baseline-status-color-outline);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    line-height: 1.4;
+}
+
+.signalsBadge:hover {
+    background: light-dark(#f5f5f5, #333);
+}
+
+.host p {
+    font-size: 1rem !important;
+    all: revert;
+}

@@ -1,0 +1,9 @@
+{
+    "extends": "@robot-inventor/tsconfig-base/react-emotion.json",
+    "compilerOptions": {
+        "jsxImportSource": null,
+        "types": ["@types/react", "@types/react-dom", "next"],
+        "noEmit": false,
+        "allowImportingTsExtensions": false
+    }
+}
