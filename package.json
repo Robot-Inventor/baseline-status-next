@@ -1,6 +1,6 @@
 {
   "name": "@robot-inventor/baseline-status-next",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A React component widget displaying Baseline status of a web feature in Next.js",
   "keywords": [
     "react",
