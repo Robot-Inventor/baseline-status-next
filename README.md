@@ -24,6 +24,11 @@ import { BaselineStatus } from "@robot-inventor/baseline-status-next";
 <BaselineStatus featureId="anchor-positioning" />
 ```
 
+### Props
+
+- `featureId` (required): Feature ID from the `web-platform-dx/web-features` repository (e.g. `anchor-positioning`).
+- `openInNewTab` (optional, default: `false`): When `true`, external links in the widget open in a new tab.
+
 ## Data source
 
 The widget fetches data from the Web Features API endpoint: `https://api.webstatus.dev/v1/features/` which exposes data from the [web-platform-dx/web-features](https://github.com/web-platform-dx/web-features/) project.
