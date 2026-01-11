@@ -141,6 +141,10 @@ interface BaselineStatusProps {
      * e.g. anchor-positioning
      */
     featureId: string;
+    /**
+     * Open external links in a new tab.
+     */
+    openInNewTab?: boolean;
 }
 
 /**
@@ -150,6 +154,7 @@ interface BaselineStatusProps {
  * @param root0 Component props
  * @param root0.featureId ID of the feature to fetch and display status for
  * @param root0.className Optional additional CSS class names
+ * @param root0.openInNewTab Whether to open external links in a new tab
  * @returns A JSX element displaying the Baseline status of the feature
  * @example
  * ```jsx
@@ -159,8 +164,10 @@ interface BaselineStatusProps {
 // eslint-disable-next-line max-lines-per-function, max-statements
 const BaselineStatus = async ({
     featureId,
+    openInNewTab = false,
     className,
     ...props
+    // eslint-disable-next-line complexity
 }: BaselineStatusProps & HTMLAttributes<HTMLDivElement>): Promise<JSX.Element> => {
     const url = API_ENDPOINT + featureId;
     const response = await fetch(url, {
@@ -208,7 +215,9 @@ const BaselineStatus = async ({
                     <a
                         className={styles["signalsBadge"]}
                         href={upvoteUrl}
-                        target="_top"
+                        target={openInNewTab ? "_blank" : "_top"}
+                        // eslint-disable-next-line no-undefined
+                        rel={openInNewTab ? "noopener noreferrer" : undefined}
                         // eslint-disable-next-line no-magic-numbers
                         title={`${upvotes.toString()} developer upvote${upvotes === 1 ? "" : "s"}. Need this feature across browsers? Click this and upvote it on GitHub.`}
                     >
@@ -265,7 +274,9 @@ const BaselineStatus = async ({
                     ) : (
                         <a
                             href={`https://github.com/web-platform-dx/web-features/blob/main/features/${featureId}.yml`}
-                            target="_top"
+                            target={openInNewTab ? "_blank" : "_top"}
+                            // eslint-disable-next-line no-undefined
+                            rel={openInNewTab ? "noopener noreferrer" : undefined}
                         >
                             Learn more
                         </a>
