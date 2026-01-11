@@ -1,5 +1,11 @@
 # @robot-inventor/baseline-status-next
 
+## 0.1.1
+
+### Patch Changes
+
+- [#8](https://github.com/Robot-Inventor/baseline-status-next/pull/8) [`c5093b2`](https://github.com/Robot-Inventor/baseline-status-next/commit/c5093b2b9ceb10d3d4d0382c00e19800adfd007e) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - docs: revert changes in the notice
+
 ## 0.1.0
 
 ### Minor Changes
