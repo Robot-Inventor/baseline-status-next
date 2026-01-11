@@ -41,7 +41,7 @@ Alternatively, you can find the feature ID by browsing the [webstatus.dev](https
 
 Code is released under the [Apache License, Version 2.0](LICENSE) with the following notice:
 
-> Copyright [baseline-status contributors](https://github.com/web-platform-dx/baseline-status/graphs/contributors) and [Robot-Inventor](https://github.com/Robot-Inventor/)
+> Copyright [baseline-status contributors](https://github.com/web-platform-dx/baseline-status/graphs/contributors)
 >
 > Licensed under the Apache License, Version 2.0 (the "License");
 > you may not use this file except in compliance with the License.
