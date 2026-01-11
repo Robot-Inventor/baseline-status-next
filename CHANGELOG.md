@@ -1,5 +1,11 @@
 # @robot-inventor/baseline-status-next
 
+## 0.1.0
+
+### Minor Changes
+
+- [#4](https://github.com/Robot-Inventor/baseline-status-next/pull/4) [`012599b`](https://github.com/Robot-Inventor/baseline-status-next/commit/012599b8d92423ed57ea41d53971adfbeb6f8a96) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - feat: add `openInNewTab` option
+
 ## 0.0.1
 
 ### Patch Changes
