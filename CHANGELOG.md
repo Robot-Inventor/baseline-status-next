@@ -1,5 +1,13 @@
 # @robot-inventor/baseline-status-next
 
+## 0.1.2
+
+### Patch Changes
+
+- [#22](https://github.com/Robot-Inventor/baseline-status-next/pull/22) [`85716e5`](https://github.com/Robot-Inventor/baseline-status-next/commit/85716e5d536a2549f4d10571f1ccc1bfca61abb4) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency next to v16.1.6
+
+- [#12](https://github.com/Robot-Inventor/baseline-status-next/pull/12) [`946f6b3`](https://github.com/Robot-Inventor/baseline-status-next/commit/946f6b3daf555fd6809bf17bf19456160df7e5a4) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update react monorepo
+
 ## 0.1.1
 
 ### Patch Changes
