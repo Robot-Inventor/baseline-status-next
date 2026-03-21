@@ -1,5 +1,11 @@
 # @robot-inventor/baseline-status-next
 
+## 0.1.3
+
+### Patch Changes
+
+- [#28](https://github.com/Robot-Inventor/baseline-status-next/pull/28) [`20a82c3`](https://github.com/Robot-Inventor/baseline-status-next/commit/20a82c345339aff92305faf984490c871187ac8a) Thanks [@dependabot](https://github.com/apps/dependabot)! - chore(deps-dev): bump flatted from 3.3.3 to 3.4.2
+
 ## 0.1.2
 
 ### Patch Changes
