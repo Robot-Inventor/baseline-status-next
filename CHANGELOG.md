@@ -1,5 +1,11 @@
 # @robot-inventor/baseline-status-next
 
+## 0.1.4
+
+### Patch Changes
+
+- [#32](https://github.com/Robot-Inventor/baseline-status-next/pull/32) [`b77a0a4`](https://github.com/Robot-Inventor/baseline-status-next/commit/b77a0a4584224d48b1381b996976f6dd281dbcc5) Thanks [@dependabot](https://github.com/apps/dependabot)! - chore(deps): bump picomatch
+
 ## 0.1.3
 
 ### Patch Changes
