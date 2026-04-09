@@ -1,5 +1,11 @@
 # @robot-inventor/baseline-status-next
 
+## 0.1.5
+
+### Patch Changes
+
+- [#40](https://github.com/Robot-Inventor/baseline-status-next/pull/40) [`0d79591`](https://github.com/Robot-Inventor/baseline-status-next/commit/0d7959139f8532600d5e1492bf29a6f97c028d76) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update react monorepo to v19.2.5
+
 ## 0.1.4
 
 ### Patch Changes
