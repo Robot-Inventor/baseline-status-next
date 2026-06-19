@@ -161,13 +161,12 @@ interface BaselineStatusProps {
  * <BaselineStatus featureId="anchor-positioning" />
  * ```
  */
-// eslint-disable-next-line max-lines-per-function, max-statements
 const BaselineStatus = async ({
     featureId,
     openInNewTab = false,
     className,
     ...props
-    // eslint-disable-next-line complexity
+    // eslint-disable-next-line complexity, max-lines-per-function, max-statements
 }: BaselineStatusProps & HTMLAttributes<HTMLDivElement>): Promise<JSX.Element> => {
     const url = API_ENDPOINT + featureId;
     const response = await fetch(url, {
