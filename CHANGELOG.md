@@ -1,5 +1,15 @@
 # @robot-inventor/baseline-status-next
 
+## 0.1.7
+
+### Patch Changes
+
+- [#79](https://github.com/Robot-Inventor/baseline-status-next/pull/79) [`6e1a7df`](https://github.com/Robot-Inventor/baseline-status-next/commit/6e1a7dfa37aac133998c4ce269132a1bf6a3f91d) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - refactor: improve the code to align with React and Next.js best practices
+
+- [#76](https://github.com/Robot-Inventor/baseline-status-next/pull/76) [`ea9ba9a`](https://github.com/Robot-Inventor/baseline-status-next/commit/ea9ba9afd12d026165abdb4dba036b014de242ea) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - chore: update vulnerable dependencies
+
+- [#80](https://github.com/Robot-Inventor/baseline-status-next/pull/80) [`2ec734e`](https://github.com/Robot-Inventor/baseline-status-next/commit/2ec734eca42d96c9afc0fd3e38d4958d8cf6af93) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - fix: removed the `$` that had been unintentionally inserted between the browser icon and the support status icon
+
 ## 0.1.6
 
 ### Patch Changes
