@@ -1,4 +1,4 @@
-import type { HTMLAttributes, JSX } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 import { BaselineIcon } from "./BaselineIcon";
 import { BrowserIcons } from "./BrowserIcons";
 import { SupportIcons } from "./SupportIcons";
@@ -7,6 +7,10 @@ import styles from "./BaselineStatus.module.css";
 const API_ENDPOINT = "https://api.webstatus.dev/v1/features/";
 // eslint-disable-next-line no-magic-numbers
 const FETCH_CACHE_TTL_SECONDS = 60 * 60 * 24 * 7;
+const BASELINE_DATE_FORMATTER = new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long"
+});
 
 type BaselineStatusType = "limited" | "newly" | "widely" | "no_data";
 
@@ -65,12 +69,7 @@ interface BaselineStatusError {
  * @returns Formatted date string
  */
 const getBaselineDate = (feature: BaselineStatusData): string =>
-    feature.baseline.low_date
-        ? new Intl.DateTimeFormat("en-US", {
-              year: "numeric",
-              month: "long"
-          }).format(new Date(feature.baseline.low_date))
-        : "";
+    feature.baseline.low_date ? BASELINE_DATE_FORMATTER.format(new Date(feature.baseline.low_date)) : "";
 
 /**
  * Returns Baseline's description.
@@ -95,7 +94,7 @@ const getDescriptionDate = (baseline: BaselineStatusType, date: string): string 
 const getAriaLabel = (
     title: string,
     year: string,
-    badge: JSX.Element,
+    hasBadge: boolean,
     chrome = "no",
     edge = "no",
     firefox = "no",
@@ -106,8 +105,7 @@ const getAriaLabel = (
         // eslint-disable-next-line no-multi-assign, no-param-reassign
         chrome = edge = firefox = safari = "unknown";
     }
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    return `Baseline: ${title}${year ? ` ${year}` : ""}${badge ? ` (newly available)` : ""}. Supported in Chrome: ${chrome === "available" ? "yes" : chrome}. Supported in Edge: ${edge === "available" ? "yes" : edge}. Supported in Firefox: ${firefox === "available" ? "yes" : firefox}. Supported in Safari: ${safari === "available" ? "yes" : safari}.`;
+    return `Baseline: ${title}${year ? ` ${year}` : ""}${hasBadge ? ` (newly available)` : ""}. Supported in Chrome: ${chrome === "available" ? "yes" : chrome}. Supported in Edge: ${edge === "available" ? "yes" : edge}. Supported in Firefox: ${firefox === "available" ? "yes" : firefox}. Supported in Safari: ${safari === "available" ? "yes" : safari}.`;
 };
 
 const checkAvailability = (implementations: Array<{ status: string } | undefined>): boolean =>
@@ -116,23 +114,26 @@ const checkAvailability = (implementations: Array<{ status: string } | undefined
 const getStatus = (implementations: Array<{ status: string } | undefined>): string =>
     checkAvailability(implementations) ? "available" : "no";
 
-const renderSupportIcon = (
-    baseline: BaselineStatusType,
-    implementations: Array<{ status: string } | undefined>
-): JSX.Element => {
+interface SupportIconProps {
+    baseline: BaselineStatusType;
+    implementations: Array<{ status: string } | undefined>;
+}
+
+const SUPPORT_STYLES = {
+    available: styles["supportAvailable"],
+    newly: styles["supportNewly"],
+    // eslint-disable-next-line camelcase
+    no_data: styles["supportNoData"],
+    unavailable: styles["supportUnavailable"],
+    widely: styles["supportWidely"]
+} as const satisfies Record<"available" | "newly" | "no_data" | "unavailable" | "widely", string | undefined>;
+
+const SupportIcon = ({ baseline, implementations }: SupportIconProps): ReactNode => {
     const allAvailable = checkAvailability(implementations);
     // eslint-disable-next-line no-nested-ternary
     const support = baseline === "limited" ? (allAvailable ? "available" : "unavailable") : baseline;
     const icon = support === "newly" || support === "widely" ? "available" : support;
-    const supportStyles = {
-        available: styles["supportAvailable"],
-        newly: styles["supportNewly"],
-        // eslint-disable-next-line camelcase
-        no_data: styles["supportNoData"],
-        unavailable: styles["supportUnavailable"],
-        widely: styles["supportWidely"]
-    } as const satisfies Record<"available" | "newly" | "no_data" | "unavailable" | "widely", string | undefined>;
-    return <span className={supportStyles[support]}>${SupportIcons[icon]}</span>;
+    return <span className={SUPPORT_STYLES[support]}>${SupportIcons[icon]}</span>;
 };
 
 interface BaselineStatusProps {
@@ -167,8 +168,9 @@ const BaselineStatus = async ({
     className,
     ...props
     // eslint-disable-next-line complexity, max-lines-per-function, max-statements
-}: BaselineStatusProps & HTMLAttributes<HTMLDivElement>): Promise<JSX.Element> => {
+}: BaselineStatusProps & HTMLAttributes<HTMLDivElement>): Promise<ReactNode> => {
     const url = API_ENDPOINT + featureId;
+    // eslint-disable-next-line @eslint-react/purity
     const response = await fetch(url, {
         cache: "force-cache",
         next: { revalidate: FETCH_CACHE_TTL_SECONDS }
@@ -230,7 +232,7 @@ const BaselineStatus = async ({
                     aria-label={getAriaLabel(
                         title,
                         year,
-                        badge,
+                        baseline === "newly",
                         getStatus([chrome, chromeAndroid]),
                         getStatus([edge]),
                         getStatus([firefox, firefoxAndroid]),
@@ -244,16 +246,19 @@ const BaselineStatus = async ({
                         </div>
                         <div className={styles["baselineStatusBrowsers"]}>
                             <span>
-                                {BrowserIcons.chrome} {renderSupportIcon(baseline, [chrome, chromeAndroid])}
+                                {BrowserIcons.chrome}{" "}
+                                <SupportIcon baseline={baseline} implementations={[chrome, chromeAndroid]} />
                             </span>
                             <span>
-                                {BrowserIcons.edge} {renderSupportIcon(baseline, [edge])}
+                                {BrowserIcons.edge} <SupportIcon baseline={baseline} implementations={[edge]} />
                             </span>
                             <span>
-                                {BrowserIcons.firefox} {renderSupportIcon(baseline, [firefox, firefoxAndroid])}
+                                {BrowserIcons.firefox}{" "}
+                                <SupportIcon baseline={baseline} implementations={[firefox, firefoxAndroid]} />
                             </span>
                             <span>
-                                {BrowserIcons.safari} {renderSupportIcon(baseline, [safari, safariIos])}
+                                {BrowserIcons.safari}{" "}
+                                <SupportIcon baseline={baseline} implementations={[safari, safariIos]} />
                             </span>
                         </div>
                     </div>

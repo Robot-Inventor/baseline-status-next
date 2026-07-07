@@ -1,4 +1,4 @@
-import type { JSX } from "react";
+import type { ReactNode } from "react";
 import styles from "./BaselineIcon.module.css";
 
 const statusIcons = {
@@ -53,6 +53,6 @@ interface BaselineIconProps {
  * @param root0.support Level of support (widely, newly, limited, no_data)
  * @returns Baseline support icon
  */
-const BaselineIcon = ({ support }: BaselineIconProps): JSX.Element => statusIcons[support];
+const BaselineIcon = ({ support }: BaselineIconProps): ReactNode => statusIcons[support];
 
 export { BaselineIcon };

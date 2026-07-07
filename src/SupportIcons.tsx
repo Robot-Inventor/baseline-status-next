@@ -1,3 +1,5 @@
+/* eslint-disable react-doctor/rendering-svg-precision */
+
 const SupportIcons = {
     available: (
         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="21" fill="none">

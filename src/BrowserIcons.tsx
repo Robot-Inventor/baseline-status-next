@@ -1,4 +1,4 @@
-/* eslint-disable max-lines */
+/* eslint-disable max-lines, react-doctor/rendering-svg-precision */
 
 const BrowserIcons = {
     chrome: (
