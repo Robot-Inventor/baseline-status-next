@@ -133,7 +133,7 @@ const SupportIcon = ({ baseline, implementations }: SupportIconProps): ReactNode
     // eslint-disable-next-line no-nested-ternary
     const support = baseline === "limited" ? (allAvailable ? "available" : "unavailable") : baseline;
     const icon = support === "newly" || support === "widely" ? "available" : support;
-    return <span className={SUPPORT_STYLES[support]}>${SupportIcons[icon]}</span>;
+    return <span className={SUPPORT_STYLES[support]}>{SupportIcons[icon]}</span>;
 };
 
 interface BaselineStatusProps {
