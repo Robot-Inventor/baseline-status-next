@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "react": "^19.2.8",
-    "react-dom": "^19.2.3"
+    "react-dom": "^19.2.8"
   },
   "overrides": {
     "zod-validation-error": "^5.0.0"
