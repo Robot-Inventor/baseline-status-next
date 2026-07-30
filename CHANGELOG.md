@@ -1,5 +1,11 @@
 # @robot-inventor/baseline-status-next
 
+## 0.1.9
+
+### Patch Changes
+
+- [#104](https://github.com/Robot-Inventor/baseline-status-next/pull/104) [`567337a`](https://github.com/Robot-Inventor/baseline-status-next/commit/567337a33911d6d72fdf4faa0919b613330315cb) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - chore: update vulnerable dependencies
+
 ## 0.1.8
 
 ### Patch Changes
