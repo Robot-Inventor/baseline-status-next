@@ -41,7 +41,7 @@
     "@robot-inventor/eslint-config": "^13.0.3",
     "@robot-inventor/tsconfig-base": "^7.1.0",
     "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.4",
+    "@types/react-dom": "^19.2.5",
     "eslint": "^10.8.1",
     "next": "^16.3.2",
     "prettier": "^3.9.6",
