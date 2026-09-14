@@ -28,7 +28,7 @@ const statusIcons = {
             <path fill="var(--baseline-icon-newly-front)" d="m26 0 2 2-18 18L0 10l2-2 8 8L26 0Z" />
         </svg>
     ),
-    // eslint-disable-next-line camelcase
+    // oxlint-disable-next-line eslint-core-js/camelcase
     no_data: (
         <svg viewBox="0 0 36 20" className={styles["host"]} aria-hidden="true">
             <path fill="var(--baseline-icon-no_data)" d="M18 8L20 10L18 12L16 10L18 8Z" />
