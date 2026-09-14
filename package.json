@@ -46,7 +46,7 @@
     "oxlint": "^1.83.0",
     "prettier": "^3.9.6",
     "shx": "^0.4.0",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   },
   "dependencies": {
     "react": "^19.3.0",
