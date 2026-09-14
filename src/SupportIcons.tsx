@@ -1,5 +1,3 @@
-/* eslint-disable react-doctor/rendering-svg-precision */
-
 const SupportIcons = {
     available: (
         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="21" fill="none">
@@ -25,7 +23,7 @@ const SupportIcons = {
             />
         </svg>
     ),
-    // eslint-disable-next-line camelcase
+    // oxlint-disable-next-line eslint-core-js/camelcase
     no_data: (
         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="21" viewBox="0 0 17 21" fill="none">
             <path

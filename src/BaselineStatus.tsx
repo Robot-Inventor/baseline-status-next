@@ -5,7 +5,7 @@ import { SupportIcons } from "./SupportIcons";
 import styles from "./BaselineStatus.module.css";
 
 const API_ENDPOINT = "https://api.webstatus.dev/v1/features/";
-// eslint-disable-next-line no-magic-numbers
+// oxlint-disable-next-line no-magic-numbers
 const FETCH_CACHE_TTL_SECONDS = 60 * 60 * 24 * 7;
 const BASELINE_DATE_FORMATTER = new Intl.DateTimeFormat("en-US", {
     year: "numeric",
@@ -29,7 +29,7 @@ const BASELINE_DEFS = {
         title: "Widely available",
         defaultDescription: "This feature is well established and works across many devices and browser versions."
     },
-    // eslint-disable-next-line camelcase
+    // oxlint-disable-next-line eslint-core-js/camelcase
     no_data: {
         title: "Unknown availability",
         defaultDescription: "We currently don’t have browser support information about this feature."
@@ -91,6 +91,7 @@ const getDescriptionDate = (baseline: BaselineStatusType, date: string): string 
     return BASELINE_DEFS[baseline].defaultDescription;
 };
 
+// oxlint-disable-next-line max-params
 const getAriaLabel = (
     title: string,
     year: string,
@@ -99,10 +100,9 @@ const getAriaLabel = (
     edge = "no",
     firefox = "no",
     safari = "no"
-    // eslint-disable-next-line max-params
 ): string => {
     if (title === "Unknown availability") {
-        // eslint-disable-next-line no-multi-assign, no-param-reassign
+        // oxlint-disable-next-line no-multi-assign, no-param-reassign
         chrome = edge = firefox = safari = "unknown";
     }
     return `Baseline: ${title}${year ? ` ${year}` : ""}${hasBadge ? ` (newly available)` : ""}. Supported in Chrome: ${chrome === "available" ? "yes" : chrome}. Supported in Edge: ${edge === "available" ? "yes" : edge}. Supported in Firefox: ${firefox === "available" ? "yes" : firefox}. Supported in Safari: ${safari === "available" ? "yes" : safari}.`;
@@ -122,7 +122,7 @@ interface SupportIconProps {
 const SUPPORT_STYLES = {
     available: styles["supportAvailable"],
     newly: styles["supportNewly"],
-    // eslint-disable-next-line camelcase
+    // oxlint-disable-next-line eslint-core-js/camelcase
     no_data: styles["supportNoData"],
     unavailable: styles["supportUnavailable"],
     widely: styles["supportWidely"]
@@ -130,7 +130,7 @@ const SUPPORT_STYLES = {
 
 const SupportIcon = ({ baseline, implementations }: SupportIconProps): ReactNode => {
     const allAvailable = checkAvailability(implementations);
-    // eslint-disable-next-line no-nested-ternary
+    // oxlint-disable-next-line no-nested-ternary
     const support = baseline === "limited" ? (allAvailable ? "available" : "unavailable") : baseline;
     const icon = support === "newly" || support === "widely" ? "available" : support;
     return <span className={SUPPORT_STYLES[support]}>{SupportIcons[icon]}</span>;
@@ -162,15 +162,14 @@ interface BaselineStatusProps {
  * <BaselineStatus featureId="anchor-positioning" />
  * ```
  */
+// oxlint-disable-next-line max-statements complexity max-lines-per-function react-doctor/no-high-complexity-react-function
 const BaselineStatus = async ({
     featureId,
     openInNewTab = false,
     className,
     ...props
-    // eslint-disable-next-line complexity, max-lines-per-function, max-statements
 }: BaselineStatusProps & HTMLAttributes<HTMLDivElement>): Promise<ReactNode> => {
     const url = API_ENDPOINT + featureId;
-    // eslint-disable-next-line @eslint-react/purity
     const response = await fetch(url, {
         cache: "force-cache",
         next: { revalidate: FETCH_CACHE_TTL_SECONDS }
@@ -193,7 +192,7 @@ const BaselineStatus = async ({
     const badge = baseline === "newly" ? <span className={styles["baselineBadge"]}>newly available</span> : <></>;
     const baselineDate = getBaselineDate(feature);
     const description = getDescriptionDate(baseline, baselineDate);
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    // oxlint-disable-next-line @typescript-eslint/no-non-null-assertion
     const year = baseline === "newly" && baselineDate ? baselineDate.split(" ")[1]! : "";
 
     const {
@@ -217,12 +216,12 @@ const BaselineStatus = async ({
                         className={styles["signalsBadge"]}
                         href={upvoteUrl}
                         target={openInNewTab ? "_blank" : "_top"}
-                        // eslint-disable-next-line no-undefined
+                        // oxlint-disable-next-line no-undefined
                         rel={openInNewTab ? "noopener noreferrer" : undefined}
-                        // eslint-disable-next-line no-magic-numbers
+                        // oxlint-disable-next-line no-magic-numbers
                         title={`${upvotes.toString()} developer upvote${upvotes === 1 ? "" : "s"}. Need this feature across browsers? Click this and upvote it on GitHub.`}
                     >
-                        {/*eslint-disable-next-line no-magic-numbers*/}
+                        {/*oxlint-disable-next-line no-magic-numbers*/}
                         👍 {upvotes || 0}
                     </a>
                 )}
@@ -276,10 +275,11 @@ const BaselineStatus = async ({
                     {baseline === "no_data" ? (
                         <></>
                     ) : (
+                        // oxlint-disable-next-line react-doctor/anchor-ambiguous-text
                         <a
                             href={`https://github.com/web-platform-dx/web-features/blob/main/features/${featureId}.yml`}
                             target={openInNewTab ? "_blank" : "_top"}
-                            // eslint-disable-next-line no-undefined
+                            // oxlint-disable-next-line no-undefined
                             rel={openInNewTab ? "noopener noreferrer" : undefined}
                         >
                             Learn more
