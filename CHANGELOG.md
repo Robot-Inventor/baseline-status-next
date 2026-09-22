@@ -1,5 +1,11 @@
 # @robot-inventor/baseline-status-next
 
+## 1.0.1
+
+### Patch Changes
+
+- [#142](https://github.com/Robot-Inventor/baseline-status-next/pull/142) [`ada1b19`](https://github.com/Robot-Inventor/baseline-status-next/commit/ada1b190245bbe9d52cc5888a63dc479a84a67ac) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - chore: remove unused oxlint-disable comments
+
 ## 1.0.0
 
 ### Major Changes
