@@ -162,7 +162,7 @@ interface BaselineStatusProps {
  * <BaselineStatus featureId="anchor-positioning" />
  * ```
  */
-// oxlint-disable-next-line max-statements complexity max-lines-per-function react-doctor/no-high-complexity-react-function
+// oxlint-disable-next-line complexity max-lines-per-function react-doctor/no-high-complexity-react-function
 const BaselineStatus = async ({
     featureId,
     openInNewTab = false,
