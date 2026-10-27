@@ -172,7 +172,9 @@ const BaselineStatus = async ({
     const url = API_ENDPOINT + featureId;
     const response = await fetch(url, {
         cache: "force-cache",
-        next: { revalidate: FETCH_CACHE_TTL_SECONDS }
+        next: {
+            revalidate: FETCH_CACHE_TTL_SECONDS
+        }
     });
 
     const responseJson = (await response.json()) as BaselineStatusData | BaselineStatusError;
