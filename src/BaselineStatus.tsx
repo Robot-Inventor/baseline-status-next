@@ -221,8 +221,7 @@ const BaselineStatus = async ({
                         // oxlint-disable-next-line no-magic-numbers
                         title={`${upvotes.toString()} developer upvote${upvotes === 1 ? "" : "s"}. Need this feature across browsers? Click this and upvote it on GitHub.`}
                     >
-                        {/*oxlint-disable-next-line no-magic-numbers*/}
-                        👍 {upvotes || 0}
+                        {/*oxlint-disable-next-line no-magic-numbers*/}👍 {upvotes || 0}
                     </a>
                 )}
             </div>

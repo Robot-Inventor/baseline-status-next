@@ -21,7 +21,7 @@ Show Baseline status widget for
 ```jsx
 import { BaselineStatus } from "@robot-inventor/baseline-status-next";
 
-<BaselineStatus featureId="anchor-positioning" />
+<BaselineStatus featureId="anchor-positioning" />;
 ```
 
 ### Props
@@ -33,7 +33,7 @@ import { BaselineStatus } from "@robot-inventor/baseline-status-next";
 
 The widget fetches data from the Web Features API endpoint: `https://api.webstatus.dev/v1/features/` which exposes data from the [web-platform-dx/web-features](https://github.com/web-platform-dx/web-features/) project.
 
-Feature IDs come from the [github.com/web-platform-dx/web-features](https://github.com/web-platform-dx/web-features/tree/main/features) repo. 
+Feature IDs come from the [github.com/web-platform-dx/web-features](https://github.com/web-platform-dx/web-features/tree/main/features) repo.
 
 Alternatively, you can find the feature ID by browsing the [webstatus.dev](https://webstatus.dev/) site and reading the ID from the URL. E.g. for `Intl.ListFormat` feature the page URL is `https://webstatus.dev/features/intl-list-format`, so the ID for this feature is `intl-list-format`.
 
@@ -47,7 +47,7 @@ Code is released under the [Apache License, Version 2.0](LICENSE) with the follo
 > you may not use this file except in compliance with the License.
 > You may obtain a copy of the License at
 >
->   http://www.apache.org/licenses/LICENSE-2.0
+> http://www.apache.org/licenses/LICENSE-2.0
 >
 > Unless required by applicable law or agreed to in writing, software
 > distributed under the License is distributed on an "AS IS" BASIS,
