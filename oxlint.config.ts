@@ -1,8 +1,8 @@
 import { defineConfig } from "oxlint";
-import { oxlintNextConfigNoJSDoc } from "@robot-inventor/oxlint-config";
+import { oxlintNextConfig } from "@robot-inventor/oxlint-config";
 
 export default defineConfig({
-    ...oxlintNextConfigNoJSDoc,
+    ...oxlintNextConfig,
     rules: {
         "sort-keys": "off"
     }
