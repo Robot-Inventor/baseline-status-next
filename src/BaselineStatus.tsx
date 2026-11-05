@@ -105,6 +105,7 @@ const getAriaLabel = (
         // oxlint-disable-next-line no-multi-assign, no-param-reassign
         chrome = edge = firefox = safari = "unknown";
     }
+
     return `Baseline: ${title}${year ? ` ${year}` : ""}${hasBadge ? ` (newly available)` : ""}. Supported in Chrome: ${chrome === "available" ? "yes" : chrome}. Supported in Edge: ${edge === "available" ? "yes" : edge}. Supported in Firefox: ${firefox === "available" ? "yes" : firefox}. Supported in Safari: ${safari === "available" ? "yes" : safari}.`;
 };
 
@@ -133,6 +134,7 @@ const SupportIcon = ({ baseline, implementations }: SupportIconProps): ReactNode
     // oxlint-disable-next-line no-nested-ternary
     const support = baseline === "limited" ? (allAvailable ? "available" : "unavailable") : baseline;
     const icon = support === "newly" || support === "widely" ? "available" : support;
+
     return <span className={SUPPORT_STYLES[support]}>{SupportIcons[icon]}</span>;
 };
 

@@ -28,7 +28,7 @@
     "provenance": true
   },
   "scripts": {
-    "lint": "oxlint ./src",
+    "lint": "oxlint src",
     "build": "tsc && shx cp \"./src/**/*.module.css\" \"./dist\"",
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check .",
